@@ -28,7 +28,7 @@ set termguicolors
   set statusline+=%-14(%l,%c%V%)               " line, character  
   set statusline+=%<%P                         " file position  
 
-colorscheme zellner
+colorscheme desert 
 
 " ----------------------------
 " Remaps
@@ -41,11 +41,15 @@ nnoremap <leader>pq :tabclose<CR>
 nnoremap <leader>rg :Rg<CR>
 nnoremap <leader>ex :Ex<CR>
 nnoremap <leader>ev :vsplit $MYVIMRC<CR>
+nnoremap <leader>~ :bel 14split \| term<CR>
+nnoremap <leader>term :bel 14split \| term<CR>
 vnoremap <leader>p "_dP
 vnoremap Y "+y
 
 inoremap <C-J> <Down>
 cnoremap %% <C-R>=expand('%:h').'/'<CR> 
+tnoremap qq <C-\><C-N>
+tnoremap quit <C-\><C-N><C-W>k
 
 vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '<-2<CR>gv=gv
