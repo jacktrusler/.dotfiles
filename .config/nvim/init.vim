@@ -17,19 +17,23 @@ set termguicolors
 " ----------------------------
 " Status Line 
 " ----------------------------
-  set laststatus=2                             " always show statusbar  
-  set statusline=  
-  set statusline+=%-4.3n\                        " buffer number  
-  set statusline+=%f\                          " filename   
-  set statusline+=%h%m%r%w                     " status flags  
-  set statusline+=\[%{strlen(&ft)?&ft:'none'}] " file type  
-  set statusline+=%=                           " right align remainder  
-  set statusline+=0x%-8B                       " character value  
-  set statusline+=%-14(%l,%c%V%)               " line, character  
-  set statusline+=%<%P                         " file position  
+" set laststatus=2                             " always show statusbar  
+" set statusline=  
+" set statusline+=%-4.3n\                        " buffer number  
+" set statusline+=%f\                          " filename   
+" set statusline+=%h%m%r%w                     " status flags  
+" set statusline+=\[%{strlen(&ft)?&ft:'none'}] " file type  
+" set statusline+=%=                           " right align remainder  
+" set statusline+=0x%-8B                       " character value  
+" set statusline+=%-14(%l,%c%V%)               " line, character  
+" set statusline+=%<%P                         " file position  
 
 " for completion plugin
 set completeopt=menu,menuone,noselect  
+" for airline - buffer tabs
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#left_sep = ' '
+
 " ----------------------------
 " Plugins 
 " ----------------------------
@@ -48,6 +52,8 @@ Plug 'junegunn/fzf.vim'
 Plug 'sudormrfbin/cheatsheet.nvim'
 Plug 'kyazdani42/nvim-tree.lua'
 Plug 'ThePrimeagen/harpoon'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 " ----------------------------
 " Lsp and Autocomplete
 " ----------------------------
@@ -106,12 +112,20 @@ nnoremap <leader>rg :Rg<CR>
 nnoremap <leader>ex :Ex<CR>
 nnoremap <leader>? :Cheatsheet<CR>
 nnoremap <leader>ev :vsplit $MYVIMRC<CR>
+nnoremap <leader>~ :bel 12split \| term <CR>a
+nnoremap <leader>term :bel 12split \| term<CR>a
+nnoremap <leader>n :bn<CR>
+nnoremap <leader>q :wq<CR>
+nnoremap <leader>! :q!<CR>
+nnoremap ,d :bd<CR>
+
 vnoremap <leader>p "_dP
 vnoremap Y "+y
 
 inoremap <C-J> <Down>
 cnoremap %% <C-R>=expand('%:h').'/'<CR> 
-
+tnoremap <Esc> <C-\><C-N>
+tnoremap <leader>term <C-\><C-N><C-W>k
 
 
 vnoremap J :m '>+1<CR>gv=gv
