@@ -66,6 +66,13 @@ require('lspconfig')['jsonls'].setup {
 require('lspconfig')['tsserver'].setup ({
   capabilities = capabilities
 })
+require('lspconfig')['solidity_ls'].setup ({
+  capabilities = capabilities
+})
+require('lspconfig')['rust_analyzer'].setup ({
+  capabilities = capabilities
+})
+
 
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with( vim.lsp.diagnostic.on_publish_diagnostics,
   {

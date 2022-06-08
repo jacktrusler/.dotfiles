@@ -14,19 +14,6 @@ set hidden
 set incsearch
 set nohlsearch
 set termguicolors
-" ----------------------------
-" Status Line 
-" ----------------------------
-" set laststatus=2                             " always show statusbar  
-" set statusline=  
-" set statusline+=%-4.3n\                        " buffer number  
-" set statusline+=%f\                          " filename   
-" set statusline+=%h%m%r%w                     " status flags  
-" set statusline+=\[%{strlen(&ft)?&ft:'none'}] " file type  
-" set statusline+=%=                           " right align remainder  
-" set statusline+=0x%-8B                       " character value  
-" set statusline+=%-14(%l,%c%V%)               " line, character  
-" set statusline+=%<%P                         " file position  
 
 " for completion plugin
 set completeopt=menu,menuone,noselect  
@@ -51,50 +38,15 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'sudormrfbin/cheatsheet.nvim'
 Plug 'kyazdani42/nvim-tree.lua'
-Plug 'ThePrimeagen/harpoon'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 " ----------------------------
-" Lsp and Autocomplete
-" ----------------------------
-Plug 'nvim-treesitter/nvim-treesitter'
-Plug 'williamboman/nvim-lsp-installer'
-Plug 'neovim/nvim-lspconfig'
-Plug 'maxmellon/vim-jsx-pretty'
-Plug 'yuezk/vim-js'
-Plug 'neovim/nvim-lspconfig'
-Plug 'hrsh7th/cmp-nvim-lsp'
-Plug 'hrsh7th/cmp-buffer'
-Plug 'hrsh7th/cmp-path'
-Plug 'hrsh7th/cmp-cmdline'
-Plug 'hrsh7th/nvim-cmp'
-" For luasnip users.
-Plug 'L3MON4D3/LuaSnip'
-Plug 'saadparwaiz1/cmp_luasnip'
-" ----------------------------
 " Color Schemes
 " ----------------------------
-Plug 'tomlion/vim-solidity'
-Plug 'crusoexia/vim-monokai'
 Plug 'gruvbox-community/gruvbox'
-Plug 'ayu-theme/ayu-vim'
 Plug 'ajmwagar/vim-deus'
 Plug 'sonph/onehalf', { 'rtp': 'vim' }
-Plug 'Mofiqul/vscode.nvim' 
 call plug#end()
-
-" ----------------------------
-" Custom Highlights
-" ----------------------------
-" function! MyHighlights() abort
-" endfunction
-" 
-" augroup MyColors
-"     autocmd! 
-"     autocmd ColorScheme onehalfdark call MyHighlights()
-" augroup END
-
-" autocmd ColorScheme * runtime plugin/diagnostic.vim
 
 colorscheme gruvbox 
 
@@ -134,6 +86,3 @@ tnoremap ! <C-\><C-N>:q!<CR>
 
 vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '<-2<CR>gv=gv
-
-lua require('lsp/lsp-installer')
-lua require('lsp')
