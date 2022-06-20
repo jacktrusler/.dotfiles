@@ -1,0 +1,16 @@
+// Place your key bindings in this file to override the defaults
+[{
+    "key": "ctrl+cmd+/",
+    "command": "macros.commentDown"
+},
+{
+    "key": "ctrl+alt+cmd+down",
+    "command": "editor.emmet.action.balanceIn"
+},
+{
+    "key": "ctrl+alt+cmd+up",
+    "command": "editor.emmet.action.balanceOut"
+},
+{ "key": "ctrl+`", "command": "workbench.action.terminal.focus"},
+{ "key": "ctrl+`", "command": "workbench.action.focusActiveEditorGroup", "when": "terminalFocus"}
+]

@@ -1,0 +1,45 @@
+{
+    "files.autoSave": "onFocusChange",
+    "workbench.editorAssociations": {
+        "*.ipynb": "jupyter-notebook",
+        "git-rebase-todo": "default"
+    },
+    "notebook.cellToolbarLocation": {
+        "default": "right",
+        "jupyter-notebook": "left"
+    },
+    "security.workspace.trust.untrustedFiles": "open",
+
+
+"macros": {
+    "commentDown": [
+        "editor.action.copyLinesDownAction",
+        "cursorUp",
+        "editor.action.addCommentLine",
+        "cursorDown"
+    ]
+},
+"editor.suggestSelection": "first",
+"vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+"editor.minimap.enabled": false,
+"explorer.confirmDelete": false,
+"editor.formatOnSave": true,
+"[javascript]": {
+    "editor.formatOnSave": true
+},
+"editor.formatOnSaveMode": "modifications",
+"editor.tabSize": 2,
+"git.confirmSync": false,
+"editor.defaultFormatter": "esbenp.prettier-vscode",
+"bracket-pair-colorizer-2.depreciation-notice": false,
+"svelte.enable-ts-plugin": true,
+"window.zoomLevel": 1,
+"html.autoClosingTags": false,
+"css.lint.unknownAtRules": "ignore",
+"explorer.confirmDragAndDrop": false,
+"javascript.updateImportsOnFileMove.enabled": "always",
+"sync.gist": "cdc9be7fca611a8d18fb61a22313a583",
+"sync.autoDownload": false,
+"sync.autoUpload": false,
+"sync.removeExtensions": false
+}
