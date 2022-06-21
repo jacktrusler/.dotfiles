@@ -1,16 +1,54 @@
-# If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
-
 # Path to your oh-my-zsh installation.
 export ZSH="/Users/tenzin/.oh-my-zsh"
 
-# Set name of the theme to load --- if set to "random", it will
-# load a random theme each time oh-my-zsh is loaded, in which case,
-# to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 # ~/.oh-my-zsh/themes
-  ZSH_THEME="jacksCustom"
-# RPROMPT='Something'
+ZSH_THEME="jacksCustom"
+
+source $ZSH/oh-my-zsh.sh
+
+#------------------------------------
+# Aliases
+#------------------------------------
+
+alias vim="nvim"
+alias config='/usr/bin/git --git-dir=/Users/tenzin/.dotfiles/ --work-tree=/Users/tenzin'
+
+#------------------------------------
+# Path and Environment Variables
+#------------------------------------
+
+export PATH="/opt/homebrew/opt/tcl-tk/bin:$PATH"
+export PATH=/usr/local/share/python:$PATH
+export PATH=$PATH:/Users/tenzin/Library/Python/3.8/bin
+export EDITOR="code -w"
+export PATH=$PATH:/Users/tenzin/Library/Python/3.9/bin
+export PATH="$PATH:/Users/tenzin/.foundry/bin"
+export PATH="$PATH:/Users/tenzin/.foundry/bin"
+export PATH="$PATH:/Users/tenzin/go"
+export PATH="$PATH:/Users/tenzin/go/bin"
+export GOPATH=$HOME/go
+export GOBIN=$GOPATH/bin
+export PATH=${PATH}:$GOBIN:$GOROOT/bin
+export PATH="$PATH:/usr/local/smlnj/bin"
+export PATH="$PATH:/Users/tenzin/scripts"
+
+
+#------------------------------------
+# Keybinds
+#------------------------------------
+
+
+bindkey -s "^F" "tmux-sessionizer^M"
+bindkey "^K" up-line-or-beginning-search
+bindkey "^J" down-line-or-beginning-search
+bindkey "^H" backward-char
+bindkey "^L" forward-char
+
+
+#------------------------------------
+# Other ZSH settings
+#------------------------------------
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -73,9 +111,7 @@ export ZSH="/Users/tenzin/.oh-my-zsh"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 # plugins=(git)
-
-source $ZSH/oh-my-zsh.sh
-
+# ----------------------
 # User configuration
 
 # export MANPATH="/usr/local/man:$MANPATH"
@@ -101,38 +137,3 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-alias vim="nvim"
-alias config='/usr/bin/git --git-dir=/Users/tenzin/.dotfiles/ --work-tree=/Users/tenzin'
-
-# if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
-
-# source /opt/homebrew/opt/chruby/share/chruby/chruby.sh
-# source /opt/homebrew/opt/chruby/share/chruby/auto.sh
-# chruby ruby-2.7.2
-export PATH="/opt/homebrew/opt/tcl-tk/bin:$PATH"
-export PATH=/usr/local/share/python:$PATH
-export PATH=$PATH:/Users/tenzin/Library/Python/3.8/bin
-export EDITOR="code -w"
-export PATH=$PATH:/Users/tenzin/Library/Python/3.9/bin
-
-export PATH="$PATH:/Users/tenzin/.foundry/bin"
-
-export PATH="$PATH:/Users/tenzin/.foundry/bin"
-export PATH="$PATH:/Users/tenzin/go"
-export PATH="$PATH:/Users/tenzin/go/bin"
-export GOPATH=$HOME/go
-export GOBIN=$GOPATH/bin
-export PATH=${PATH}:$GOBIN:$GOROOT/bin
-export PATH="$PATH:/usr/local/smlnj/bin"
-export PATH="$PATH:/Users/tenzin/scripts"
-
-# [[ -s "/Users/tenzin/.gvm/scripts/gvm" ]] && source "/Users/tenzin/.gvm/scripts/gvm"
-
-
-export NVM_DIR="$HOME/.nvm"
-# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-# [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
-bindkey -s "^F" "tmux-sessionizer\n"
-bindkey "^K" up-line-or-search
-bindkey "^J" down-line-or-search
