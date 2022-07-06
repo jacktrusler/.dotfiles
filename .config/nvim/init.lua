@@ -1,0 +1,5 @@
+require('config/globals')
+require('config/remaps')
+require('config/styling')
+require('config/settings')
+require('config/plugins')
