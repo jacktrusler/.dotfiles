@@ -1,4 +1,10 @@
-require('telescope').setup{
+local present, telescope = pcall(require, "telescope")
+
+if not present then
+   return
+end
+
+telescope.setup{
   defaults = {
     -- Default configuration for telescope goes here:
     -- config_key = value,
