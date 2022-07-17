@@ -33,6 +33,9 @@ M.options = {
    },
 }
 
+-- merge overrides if there are any
+M.options = require("core.utils").load_override(M.options, "wbthomason/packer.nvim")
+
 M.run = function(plugins)
    local present, packer = pcall(require, "packer")
 

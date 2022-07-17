@@ -7,62 +7,23 @@ local plugins = {
 
    ["kyazdani42/nvim-web-devicons"] = {
       module = "nvim-web-devicons",
-      config = function()
-         require("plugins.configs.others").devicons()
-      end,
    },
 
    ["lukas-reineke/indent-blankline.nvim"] = {
       opt = true,
-      setup = function()
-         require("core.lazy_load").on_file_open "indent-blankline.nvim"
-      end,
-      config = function()
-         require("plugins.configs.others").blankline()
-      end,
    },
 
    ["NvChad/nvim-colorizer.lua"] = {
       opt = true,
-      setup = function()
-         require("core.lazy_load").colorizer()
-      end,
-      config = function()
-         require("plugins.configs.others").colorizer()
-      end,
    },
 
    ["nvim-treesitter/nvim-treesitter"] = {
       module = "nvim-treesitter",
-      setup = function()
-         require("core.lazy_load").on_file_open "nvim-treesitter"
-      end,
-      cmd = require("core.lazy_load").treesitter_cmds,
-      run = ":TSUpdate",
-      config = function()
-         require "plugins.configs.treesitter"
-      end,
-   },
-
-   -- git stuff
-   ["lewis6991/gitsigns.nvim"] = {
-      ft = "gitcommit",
-      setup = function()
-         require("core.lazy_load").gitsigns()
-      end,
-      config = function()
-         require("plugins.configs.others").gitsigns()
-      end,
    },
 
    -- lsp stuff
-
    ["williamboman/nvim-lsp-installer"] = {
       opt = true,
-      cmd = require("core.lazy_load").lsp_cmds,
-      setup = function()
-         require("core.lazy_load").on_file_open "nvim-lsp-installer"
-      end,
    },
 
    ["neovim/nvim-lspconfig"] = {
@@ -75,7 +36,6 @@ local plugins = {
    },
 
    -- load luasnips + cmp related in insert mode only
-
    ["rafamadriz/friendly-snippets"] = {
       module = "cmp_nvim_lsp",
       event = "InsertEnter",
@@ -91,9 +51,6 @@ local plugins = {
    ["L3MON4D3/LuaSnip"] = {
       wants = "friendly-snippets",
       after = "nvim-cmp",
-      config = function()
-         require("plugins.configs.others").luasnip()
-      end,
    },
 
    ["saadparwaiz1/cmp_luasnip"] = {
@@ -116,23 +73,6 @@ local plugins = {
       after = "cmp-buffer",
    },
 
-   -- misc plugins
-
-   ["goolord/alpha-nvim"] = {
-      after = "base46",
-      disable = true,
-      config = function()
-         require "plugins.configs.alpha"
-      end,
-   },
-
-   ["numToStr/Comment.nvim"] = {
-      module = "Comment",
-      keys = { "gc", "gb" },
-      config = function()
-         require("plugins.configs.others").comment()
-      end,
-   },
 
    -- file managing , picker etc
    ["nvim-telescope/telescope.nvim"] = {
@@ -141,5 +81,6 @@ local plugins = {
          require "plugins.configs.telescope"
       end,
    },
+}
 
 require("core.packer").run(plugins)
