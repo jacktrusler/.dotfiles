@@ -4,6 +4,17 @@ if not present then
    return
 end
 
+require("nvim-lsp-installer").setup({
+    automatic_installation = true, -- automatically detect which servers to install (based on which servers are set up via lspconfig)
+    ui = {
+        icons = {
+            server_installed = "✓",
+            server_pending = "➜",
+            server_uninstalled = "✗"
+        }
+    }
+})
+
 local opts = { noremap=true, silent=true }
 vim.keymap.set('n', '<space>e', vim.diagnostic.open_float, opts)
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, opts)
@@ -23,11 +34,6 @@ local on_attach = function(client, bufnr)
       -- stable
       client.resolved_capabilities.document_formatting = false
       client.resolved_capabilities.document_range_formatting = false
-   end
-
-
-   if client.server_capabilities.signatureHelpProvider then
-      require("nvchad_ui.signature").setup(client)
    end
 
   -- Mappings.
