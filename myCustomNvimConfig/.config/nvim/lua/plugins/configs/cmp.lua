@@ -59,3 +59,7 @@ end
   require('lspconfig')['sumneko_lua'].setup {
     capabilities = capabilities
   }
+  require('lspconfig')['tsserver'].setup {
+     capabilities = capabilities
+  }
+  }
