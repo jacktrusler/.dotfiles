@@ -17,8 +17,9 @@ vim.g.maplocalleader = " "
 --   Command      = "c"
 
 keymap("n", "<leader>e", ":Lex 20<CR>", opts)
-keymap("n", "<leader>ff", "Telescope find_files<CR>", opts)
-keymap("n", "<leader>lg", "Telescope live_grep<CR>", opts)
+keymap("n", "<leader>v", ":Vex<CR>", opts)
+keymap("n", "<leader>ff", "<CMD>Telescope find_files<CR>", opts)
+keymap("n", "<leader>rg", "<CMD>Telescope live_grep<CR>", opts)
 
 -- try these out in normal mode!
 -- make sure you have fzf and ripgrep installed.
