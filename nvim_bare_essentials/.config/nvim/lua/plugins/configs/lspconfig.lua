@@ -1,11 +1,7 @@
+require("nvim-lsp-installer").setup {}
 local present, lspconfig = pcall(require, "lspconfig")
-local alsoPresent, lspInstaller = pcall(require, "nvim-lsp-installer")
 
 if not present then
-   return
-end
-
-if not alsoPresent then
    return
 end
 
@@ -51,36 +47,16 @@ local on_attach = function(client, bufnr)
 end
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
-local servers = {'sumneko_lua'}
-
-local lsp_installer = require "nvim-lsp-installer"
-
-for _, name in pairs(servers) do
-   local server_is_found, server = lsp_installer.get_server(name)
-   if server_is_found then
-     if not server:is_installed() then
-       print("Installing " .. name)
-       server:install()
-     end
-   end
-end
-
-lsp_installer.on_server_ready(function(server)
-   local default_opts = {
-     on_attach = on_attach,
-   }
-   server:setup(default_opts)
-end)
 
 lspconfig.sumneko_lua.setup {
-  on_attach = on_attach,
-  capabilities = capabilities,
+   on_attach = on_attach,
+   capabilities = capabilities,
 
-  settings = {
-    Lua = {
+   settings = {
+     Lua = {
        diagnostics = {
-          globals = { "vim" },
+         globals = { "vim" },
        },
-    },
- },
+     },
+   },
 }

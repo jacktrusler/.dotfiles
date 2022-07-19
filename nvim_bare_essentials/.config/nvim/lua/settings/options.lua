@@ -1,5 +1,8 @@
+local g = vim.g
 local opt = vim.opt
 
+-- No Netrw Banner (remove this line if you're into that sort of thing)
+g.netrw_banner = 0
 -- Colors
 opt.termguicolors = true
 -- Indenting
