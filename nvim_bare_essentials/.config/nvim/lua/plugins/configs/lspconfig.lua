@@ -4,17 +4,6 @@ if not present then
    return
 end
 
-require("nvim-lsp-installer").setup({
-    automatic_installation = true, -- automatically detect which servers to install (based on which servers are set up via lspconfig)
-    ui = {
-        icons = {
-            server_installed = "✓",
-            server_pending = "➜",
-            server_uninstalled = "✗"
-        }
-    }
-})
-
 local opts = { noremap=true, silent=true }
 vim.keymap.set('n', '<space>e', vim.diagnostic.open_float, opts)
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, opts)
@@ -58,24 +47,6 @@ end
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 
-capabilities.textDocument.completion.completionItem = {
-   documentationFormat = { "markdown", "plaintext" },
-   snippetSupport = true,
-   preselectSupport = true,
-   insertReplaceSupport = true,
-   labelDetailsSupport = true,
-   deprecatedSupport = true,
-   commitCharactersSupport = true,
-   tagSupport = { valueSet = { 1 } },
-   resolveSupport = {
-      properties = {
-         "documentation",
-         "detail",
-         "additionalTextEdits",
-      },
-   },
-}
-
 lspconfig.sumneko_lua.setup {
    on_attach = on_attach,
    capabilities = capabilities,
@@ -88,3 +59,14 @@ lspconfig.sumneko_lua.setup {
       },
    },
 }
+
+require("nvim-lsp-installer").setup({
+    automatic_installation = true, -- automatically detect which servers to install (based on which servers are set up via lspconfig)
+    ui = {
+        icons = {
+            server_installed = "✓",
+            server_pending = "➜",
+            server_uninstalled = "✗"
+        }
+    }
+})
