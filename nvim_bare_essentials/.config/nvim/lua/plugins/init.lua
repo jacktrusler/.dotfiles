@@ -30,8 +30,15 @@ packer.startup(function(use)
    use 'nvim-lua/plenary.nvim'            -- avoids callbacks, used by other plugins
    use 'nvim-lua/popup.nvim'              -- popup for other plugins
    use 'nvim-treesitter/nvim-treesitter'  -- language parsing completion engine
-   use 'neovim/nvim-lspconfig'            -- language server protocol implementation
    use 'williamboman/nvim-lsp-installer'  -- UI for fetching/downloading LSPs
+   use {'neovim/nvim-lspconfig',          -- language server protocol implementation
+      after = "nvim-lsp-installer",
+      module = "lspconfig",
+      config = function()
+         require "plugins.configs.lsp_installer"
+         require "plugins.configs.lspconfig"
+      end,
+   }
    use 'rafamadriz/friendly-snippets'     -- great community code snippets
    use 'hrsh7th/nvim-cmp'                 -- THE vim completion engine
    use 'L3MON4D3/LuaSnip'                 -- more snippets
