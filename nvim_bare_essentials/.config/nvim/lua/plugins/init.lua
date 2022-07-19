@@ -32,7 +32,7 @@ packer.startup(function(use)
    use 'nvim-treesitter/nvim-treesitter'  -- language parsing completion engine
    use 'williamboman/nvim-lsp-installer'  -- UI for fetching/downloading LSPs
    use {'neovim/nvim-lspconfig',          -- language server protocol implementation
-      after = "nvim-lsp-installer",
+      requires = "nvim-lsp-installer",
    }
    use 'rafamadriz/friendly-snippets'     -- great community code snippets
    use 'hrsh7th/nvim-cmp'                 -- THE vim completion engine
