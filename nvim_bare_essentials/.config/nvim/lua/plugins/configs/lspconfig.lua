@@ -1,4 +1,5 @@
 local present, lspconfig = pcall(require, "lspconfig")
+local present, lspInstaller = pcall(require, "lspInstaller")
 
 if not present then
    return
@@ -46,6 +47,19 @@ local on_attach = function(client, bufnr)
 end
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
+local servers = {'sumneko_lua'}
+
+lspInstaller.setup({
+    ensure_installed = servers,
+    automatic_installation = true, -- automatically detect which servers to install (based on which servers are set up via lspconfig)
+    ui = {
+        icons = {
+            server_installed = "✓",
+            server_pending = "➜",
+            server_uninstalled = "✗"
+        }
+    }
+})
 
 lspconfig.sumneko_lua.setup {
    on_attach = on_attach,
