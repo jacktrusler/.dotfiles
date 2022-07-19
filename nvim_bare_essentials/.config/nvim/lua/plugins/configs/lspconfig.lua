@@ -1,7 +1,11 @@
 local present, lspconfig = pcall(require, "lspconfig")
-local present, lspInstaller = pcall(require, "lspInstaller")
+local alsoPresent, lspInstaller = pcall(require, "nvim-lsp-installer")
 
 if not present then
+   return
+end
+
+if not alsoPresent then
    return
 end
 
