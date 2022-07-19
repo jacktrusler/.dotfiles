@@ -1,3 +1,9 @@
+local present, lspconfig = pcall(require, "lspconfig")
+
+if not present then
+   return
+end
+
 local opts = { noremap=true, silent=true }
 vim.keymap.set('n', '<space>e', vim.diagnostic.open_float, opts)
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, opts)
@@ -40,25 +46,24 @@ local on_attach = function(client, bufnr)
 end
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
-local servers = {'sumneko_lua'}
 
-local lsp_installer = require "nvim-lsp-installer"
+lspconfig.sumneko_lua.setup {
+   on_attach = on_attach,
+   capabilities = capabilities,
 
-for _, name in pairs(servers) do
-   local server_is_found, server = lsp_installer.get_server(name)
-   if server_is_found then
-     if not server:is_installed() then
-       print("Installing " .. name)
-       server:install()
-     end
-   end
-end
-
-lsp_installer.on_server_ready(function(server)
-   local default_opts = {
-     on_attach = on_attach,
-     capabilities = capabilities,
-   }
-   server:setup(default_opts)
-end)
-
+   settings = {
+      Lua = {
+         diagnostics = {
+            globals = { "vim" },
+         },
+         workspace = {
+            library = {
+               [vim.fn.expand "$VIMRUNTIME/lua"] = true,
+               [vim.fn.expand "$VIMRUNTIME/lua/vim/lsp"] = true,
+            },
+            maxPreload = 100000,
+            preloadFileSize = 10000,
+         },
+      },
+   },
+}
