@@ -47,7 +47,7 @@ end
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 
-lspconfig.tsserver.setup {
+lspconfig.sumneko_lua.setup {
    on_attach = on_attach,
    capabilities = capabilities,
 
