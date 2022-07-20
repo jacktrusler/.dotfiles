@@ -1,6 +1,6 @@
 FROM fedora:latest
 
-# Add everything from build directory ~/Coding/Ansible/docker-build to container ~/
+# Add everything from build directory ~/Coding/Ansible/jack-container to container ~/
 ADD ./ ./root/
 
 # apt updates and install ansible, curl, git, neovim
