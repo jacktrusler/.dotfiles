@@ -15,8 +15,9 @@ Utilities:
   - Ansible
   - Git
   - Curl
+  - Npm
 
-Languages: 
+Language Runtimes: 
   - Lua
   - NodeJS
   - Python3
